@@ -123,7 +123,7 @@ void hash_lookup(const char *key)
 {
 	int value = 0;
 	int index = 0;
-	int i = 0;
+	int i = 0, *ptr = NULL;
 	int entry = 0;
 	person_t *ptr = NULL;
 

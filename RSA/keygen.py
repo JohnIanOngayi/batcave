@@ -33,7 +33,7 @@ if __name__ == "__main__":
         return n, e, d
                 
     
-    def encrypter(string):
+    def encryptor(string):
         n, e, d = key_gen()
         string_tuple = ()
         result_dict = {

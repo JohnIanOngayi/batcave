@@ -1,0 +1,86 @@
+Test cases for add in calc.py
+=============================
+
+This module implements tests for ``calc.py`` module
+
+Usage
+=====
+
+Importing the function from the module
+	>>> from calc import add
+
+Testing all integers
+	>>> add(10, 5)
+	15
+
+Testing floats
+	>>> add(16.9, 25.66)
+	41
+
+Testing a single arg
+	>>> add(20.98)
+	118
+
+Testing for infinity
+	>>> add(float('inf'))
+	Traceback (most recent call last):
+	...
+	OverflowError: cannot convert float infinity to integer
+
+	>>> add(float('inf'), 6)
+	Traceback (most recent call last):
+	...
+	OverflowError: cannot convert float infinity to integer
+
+	>>> add(6, float('inf'))
+	Traceback (most recent call last):
+	...
+	OverflowError: cannot convert float infinity to integer
+
+	>>> add(float('inf'), float('inf'))
+	Traceback (most recent call last):
+	...
+	OverflowError: cannot convert float infinity to integer
+
+	>>> add(float('inf'), 16.82)
+	Traceback (most recent call last):
+	...
+	OverflowError: cannot convert float infinity to integer
+
+	>>> add(16.85, float('inf'))
+	Traceback (most recent call last):
+	...
+	OverflowError: cannot convert float infinity to integer
+
+Testing for NaN Type
+	>>> add(float('nan'))
+	Traceback (most recent call last):
+	...
+	ValueError: cannot convert float NaN to integer
+
+	>>> add(float('nan'), 6)
+	Traceback (most recent call last):
+	...
+	ValueError: cannot convert float NaN to integer
+
+	>>> add(6, float('nan'))
+	Traceback (most recent call last):
+	...
+	ValueError: cannot convert float NaN to integer
+
+	>>> add(float('nan'), float('nan'))
+	Traceback (most recent call last):
+	...
+	ValueError: cannot convert float NaN to integer
+
+	>>> add(float('nan'), 16.82)
+	Traceback (most recent call last):
+	...
+	ValueError: cannot convert float NaN to integer
+
+	>>> add(16.85, float('nan'))
+	Traceback (most recent call last):
+	...
+	ValueError: cannot convert float NaN to integer
+
+	=========================================================================
