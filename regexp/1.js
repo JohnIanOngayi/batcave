@@ -108,3 +108,26 @@ const RaceEnd = "Ricky and Cal like racing"
 const RaceMid = "Cal and Ricky racing gern"
 console.log("Match RickyCal: " + /racing$/.test(RaceEnd))
 console.log("Match CalRicky: " + /racing$/.test(RaceMid))
+
+/*
+ * Matching character types
+ * \w matches all alphabetical characters, numbers and underscore
+ * \W matches the opposite of the above
+ * \d matches only digits
+ * \D matches the opposite of the above
+ * \s matches whitespace characters
+ * \S does the opposite
+ */
+const story = "Was ist dein IP_addresse, ist es 192.168.0.1. #***?"
+console.log("Alphabeticals matched: " + story.match(/\w/g))
+console.log("Non-alphabeticals: " + story.match(/\W/g))
+
+/*
+ * Regexp to validate usernames
+ * Letters can be lower or uppercase
+ * If there are numbers, they should be at the end
+ * At least two characters long. Two letter names cannot have numbers
+ */
+let username = "JackofAllTrades"
+let usercheck = /^[a-zA-Z]{2,}[0-9]*$/g
+console.log("Username " + username +" Status: " + usercheck.test(username))
