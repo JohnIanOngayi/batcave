@@ -1,15 +1,6 @@
-/*TYPE CONVERSIONS*/
-let age = window.prompt("How old are you");
-console.log(`${typeof age}`);
-//Use Number Function to convert to integer
-age = Number(age);
-console.log(`${typeof age}`);
-console.log(`${age}`);
 /*
- * Other type converter functions include
- *  - String()
- *  - Boolean()
- *      As long as there's some value Boolean returns true
- *      A typical usecase for this would be to check whether user
- *      added input required
+ * const - a variable that cannot be chaged
  * */
+const PI = 3.14159;
+let radius = Number(window.prompt("Enter a Radius"));
+console.log(`Circumference = ${2 * PI * radius}`);
