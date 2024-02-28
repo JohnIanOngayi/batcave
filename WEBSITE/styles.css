@@ -1,31 +1,32 @@
 body {
         font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-align: center;
 }
 #main_header {
         display: block;
         text-align: center;
 }
 
-#digit_header {
-        font-size: 7em;
-        display: block;
-        text-align: center;
+.btn-div label {
+        font-weight: bold;
+        font-size: 2em;
 }
 
-.btn-div {
-        display: block;
-        text-align: center;
+.btn-div input {
+        font-size: 2em;
+        padding: 10px 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
 }
 
 .btn-div button {
         font-size: 2em;
+        background-color: blue;
         padding: 10px 20px;
         border-radius: 16px;
-        background-color: yellowgreen;
-        transition: background-color 0.25s;
         cursor: pointer;
 }
 
 .btn-div button:hover {
-        background-color: blueviolet;
+        background-color: green;
 }
