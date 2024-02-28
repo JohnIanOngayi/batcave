@@ -1,11 +1,13 @@
 /*
- * Using if statements to lock youngins out
+ * String methods in js
  */
-let age = document.getElementById("usrname_age").value;
-document.getElementById("btn_submit").onclick = function () {
-  if (Number(age) < 18) {
-    window.alert("access denied");
-  } else {
-    window.alert("Welcome");
-  }
-};
+let username = "BroCode";
+
+//username.charAt(2) --> o
+//username.indexOf('o') --> returns first occurrence of an 'o'
+//username.lastindexOf('o') --> returns last occurrence of an 'o'
+//username.length --> not a method though
+//username.trim() --> trim whitespaces before and after
+//username.toLowerCase()
+//username.toUpperCase()
+//STRING SLICING: string.slice(start, end) ending will not be included

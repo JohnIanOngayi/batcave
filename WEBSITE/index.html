@@ -9,14 +9,19 @@
         <body>
                 <h1 id="main_header">In den Club</h1>
                 <div class="btn-div">
-                        <label for="usrname_input">username: </label>
-                        <input type="text" id="usrname_input" placeholder="John Doe">
+                        <input type="checkbox" id="check-subscribe">
+                        <label for="check-subscribe">subcribe</label>
                         <br>
-                        <label for="usrname_age">age: </label>
-                        <input type="text" id="usrname_age">
-                        <br>
-                        <button id="btn_submit">Submit</button>
+                        <div id="radiolist">
+                                <input type="radio" id="visaBtn" name="card">
+                                <label type="checkbox" id="radio-visa">visa</label>
+                                <input type="radio" for="mastercardBtn" name="card">
+                                <label type="checkbox" id="mastercardBtn">mastercard</label>
+                                <input type="radio" for="paypalBtn" name="card">
+                                <label type="checkbox" id="paypalBtn">paypal</label>
+                        </div>
                 </div>
+                <button id="btn-submit">submit</button>
                 <script src="index.js"></script>
         </body>
 </html>
