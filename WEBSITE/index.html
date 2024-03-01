@@ -7,21 +7,22 @@
                 <link rel="stylesheet" href="styles.css">
         </head>
         <body>
-                <h1 id="main_header">In den Club</h1>
-                <div class="btn-div">
-                        <input type="checkbox" id="check-subscribe">
-                        <label for="check-subscribe">subcribe</label>
+                <form>
+                        <h1 id="main_header">Temperature Conversion</h1>
                         <br>
-                        <div id="radiolist">
-                                <input type="radio" id="visaBtn" name="card">
-                                <label type="checkbox" id="radio-visa">visa</label>
-                                <input type="radio" for="mastercardBtn" name="card">
-                                <label type="checkbox" id="mastercardBtn">mastercard</label>
-                                <input type="radio" for="paypalBtn" name="card">
-                                <label type="checkbox" id="paypalBtn">paypal</label>
-                        </div>
-                </div>
-                <button id="btn-submit">submit</button>
+                        <input id="input-bar" type="number">
+                        <br>
+                        <input id="radio-c" type="radio" name="tmp-unit">
+                        <label for="radio-c" class="label-unit">Celsius ➡️ Fahrenheit</label>
+                        <br>
+                        <input id="radio-f" type="radio" name="tmp-unit">
+                        <label for="radio-f" class="label-unit">Fahrenheit ➡️ Celsius</label>
+                        <br>
+                        <button id="btn-submit">submit</button>
+                        <br>
+                        <p id="result"></p>
+                        <br>
+                </form>
                 <script src="index.js"></script>
         </body>
 </html>

@@ -1,21 +1,19 @@
 /*
- * Strict Equality Operators
- * == comparison operator(values equal?)
- * === strict equality operator(values and data types equal)
- * != inequality operator
- * !== strict inequality operator
- * = assignment operator
+ * TEMP CONVERTER
  */
-const PI = 3.14;
+const toFahren = document.getElementById("radio-c");
+const toCelsiu = document.getElementById("radio-f");
+const btn = document.getElementById("btn-submit");
+const result = document.getElementById("result");
 
-if (PI == "3.14") {
-  console.log("That is PI");
-} else {
-  console.log("That isn't PI");
-}
-
-if (PI === "3.14") {
-  console.log("That is exactly PI");
-} else {
-  console.log("That isn't exactly PI");
-}
+btn.onclick = function () {
+  event.preventDefault();
+  const input = Number(document.getElementById("input-bar").value);
+  if (toFahren.checked) {
+    result.textContent = (input * 9) / 5 + 32;
+  } else if (toCelsiu.checked) {
+    result.textContent = (input * 5) / 9 - 32;
+  } else {
+    result.textContent = "Nuuh";
+  }
+};
