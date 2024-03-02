@@ -8,20 +8,30 @@
         </head>
         <body>
                 <form>
-                        <h1 id="main_header">Temperature Conversion</h1>
-                        <br>
-                        <input id="input-bar" type="number">
-                        <br>
-                        <input id="radio-c" type="radio" name="tmp-unit">
-                        <label for="radio-c" class="label-unit">Celsius ➡️ Fahrenheit</label>
-                        <br>
-                        <input id="radio-f" type="radio" name="tmp-unit">
-                        <label for="radio-f" class="label-unit">Fahrenheit ➡️ Celsius</label>
+                        <h1 id="main_header">Password Generator</h1>
+                        <label for="length">Preferred password length: </label>
+                        <input type="number" id="length" value="8">
+                        <p>Select types of characters to be included</p>
+                        <div>
+                                <label for="lowercase">Include lowercase characters</label>
+                                <input type="checkbox" id="lowercase" class="chars" checked>
+                        </div>
+                        <div>
+                                <label for="uppercase">Include uppercase characters</label>
+                                <input type="checkbox" id="uppercase" class="chars" checked>
+                        </div>
+                        <div>
+                                <label for="numbers">Include numeric characters</label>
+                                <input type="checkbox" id="numbers" class="chars" checked>
+                        </div>
+                        <div>
+                                <label for="symbols">Include symbol characters</label>
+                                <input type="checkbox" id="symbols" class="chars" checked>
+                        </div>
                         <br>
                         <button id="btn-submit">submit</button>
-                        <br>
+                        <p id="holder-text"></p>
                         <p id="result"></p>
-                        <br>
                 </form>
                 <script src="index.js"></script>
         </body>
