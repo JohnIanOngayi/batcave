@@ -1,46 +1,74 @@
-body {
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+/*
+To align on th cross axis- you need a height property to use
+align-items which is 'kinda equivalent to justify-content'
+*/
+*{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
 }
 
-form {
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 30px;
-        border-radius: 40px;
-        background-color: lightsteelblue;
+body{
+        font-family: Arial, Helvetica, sans-serif;
 }
 
-h1 {
-        color: red;
-        text-align: center;
+.flex-container{
+        display: flex;
+        background: lightgray;
+        justify-content: space-between;
+        /*
+        flex-wrap property wraps flex items if another 'width' cannot fit
+        flex-wrap: wrap;
+        */
 }
 
-div {
-        background-color: whitesmoke;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        border: 2px solid white;
-        padding: 5px 10px;
-        border-radius: 15px;
+.item{
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #254de4;
+        color: #fff;
+        margin: 10px;
+}
+/*
+This jumbles up the order
+
+.item:nth-of-type(1){
+        order: 3;
 }
 
-.chars {
-        transform: 1.2;
+.item:nth-of-type(2){
+        order: 1;
 }
 
-#btn-submit {
-        margin-right: center;
-        margin-left: center;
-        cursor: pointer;
-        background-color: azure;
-        border-radius: 15px;
-        font-size: 1.2em;
+.item:nth-of-type(3){
+        order: 2;
+}
+*/
+
+.item:nth-of-type(1){
+flex-grow: 2;
 }
 
-#length {
-        padding: 5px 5px;
-        border-radius: 10px;
-        text-align: center;
-        border: 0px;
+.item:nth-of-type(2){
+flex-grow: 2;
+        /*
+        flex-basis is an optional equivalent for width for flexbox
+        flex-basis: 200px;
+
+        flex-grow rate to which a flex-item extends to fill available space
+        flex-grow: 2;
+
+        flex-shrink rate to which a flex-item shrinks
+        flex-shrink: 2;
+
+        Or shorthand flex: 0 1 100px;
+        IE:-> grow shrink basis
+        */
+}
+
+.item:nth-of-type(3){
+flex-grow: 2;
 }
