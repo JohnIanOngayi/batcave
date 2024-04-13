@@ -96,3 +96,9 @@ if __name__ == "__main__":
     # userID = "71c63c6c-55f7-4ece-8ac3-0881bcec5d29"
     # allPosts = session.query(Posts).filter(Posts.userID == userID).all()
     # print([post.postContent for post in allPosts])
+    # players = session.query(Users).order_by(Users.lastName)
+    # for player in players:
+    #     print(player.firstName, player.lastName, player.profileName)
+    player = session.query(Users).filter(Users.firstName == "Thomas").first()
+    session.delete(player)
+    session.commit()
