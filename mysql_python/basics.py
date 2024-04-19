@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
-from enum import unique
-from sqlalchemy import create_engine, ForeignKey, String, Integer, Column
+from sqlalchemy import create_engine, ForeignKey, String, Integer, Column, inspect
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import uuid
@@ -99,6 +98,10 @@ if __name__ == "__main__":
     # players = session.query(Users).order_by(Users.lastName)
     # for player in players:
     #     print(player.firstName, player.lastName, player.profileName)
-    player = session.query(Users).filter(Users.firstName == "Thomas").first()
-    session.delete(player)
-    session.commit()
+    # mappeds = [Base._decl_class_registry.values()]
+    # for _cls in mappeds:
+    #     allPosts = session.query(_cls).all()
+    #     for post in allPosts:
+    #         print(post, post.userID)
+    all_p = session.query(Player).all()
+    print(all_p)
