@@ -9,6 +9,7 @@
 // }
 
 const printSymbol = (e) => {
+  if (result.textContent == 0) result.textContent = "";
   result.textContent += e.target.textContent;
 };
 //
@@ -33,6 +34,7 @@ const add2 = document.getElementById("add2");
 const perc = document.getElementById("perc");
 const div = document.getElementById("div");
 const mul = document.getElementById("mul");
+const sub = document.getElementById("sub");
 const pt = document.getElementById("pt");
 const eq = document.getElementById("eq");
 
@@ -52,4 +54,7 @@ perc.addEventListener("click", printSymbol);
 div.addEventListener("click", printSymbol);
 mul.addEventListener("click", printSymbol);
 pt.addEventListener("click", printSymbol);
-AC.addEventListener("click", () => (result.textContent = ""));
+AC.addEventListener("click", () => (result.textContent = "0"));
+eq.addEventListener("click", () => {
+  result.textContent = eval(result.textContent);
+});
