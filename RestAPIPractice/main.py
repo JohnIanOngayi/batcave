@@ -8,14 +8,14 @@ api = Api(app)
 
 
 class HelloWorld(Resource):
-    def get(self):
-        return {"data": "Hello World"}
+    def get(self, name="HelloWorld"):
+        return {"data": name}
 
-    def post(self):
-        return {"data": "Successful post request"}
+    def post(self, name="Successful post"):
+        return {"data": f"Successful post {name}"}
 
 
-api.add_resource(HelloWorld, "/helloworld")
+api.add_resource(HelloWorld, "/helloworld/<string:name>")
 
 
 if __name__ == "__main__":
