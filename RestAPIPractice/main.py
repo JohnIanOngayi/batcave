@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.8
 
-from flask import Flask
+from flask import Flask, request
 from flask_restful import Api, Resource
 
 app = Flask(__name__)
@@ -18,8 +18,12 @@ class HelloWorld(Resource):
     def get(self, name="HelloWorld"):
         return names[name]
 
-    def post(self, name="Successful post"):
+    def post(self, name="no data though!"):
         return {"data": f"Successful post {name}"}
+
+    def put(self, name):
+        print(request.form)
+        return {}
 
 
 api.add_resource(HelloWorld, "/helloworld/<string:name>")
