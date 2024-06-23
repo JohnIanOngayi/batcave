@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+// PLAIN JS OBJECT
 // var userOne = {
 //   email: "ryu@ninjas.com",
 //   name: "ryu",
@@ -13,7 +14,9 @@
 //
 // userOne["age"] = 26;
 // console.log(userOne);
-
+//
+//
+// USER CLASS
 // class User {
 //   #nb_objects = 0;
 //   constructor(email, name) {
@@ -30,6 +33,8 @@
 //   }
 // }
 //
+//
+// ADMIN CLASS
 // class Admin extends User {
 //   deleteUser(user) {
 //     users = users.filter((u) => {
@@ -37,10 +42,14 @@
 //     });
 //   }
 // }
+//
+//
+// USER PROTOTYPE
 function User(email, name) {
   this.email = email;
   this.name = name;
   this.online = false;
+  this.class = "User";
 }
 
 User.prototype.login = function () {
@@ -52,9 +61,13 @@ User.prototype.logout = function () {
   console.log(`${this.name} logged out!`);
 };
 
+//
+//ADMIN PROTOTYPE
 function Admin(...args) {
   User.apply(this, args);
+  this.class = "Admin";
 }
+Admin.prototype = Object.create(User.prototype);
 Admin.prototype.deleteUser = function (user) {
   users = users.filter((value) => {
     return value != user;
@@ -64,8 +77,9 @@ Admin.prototype.deleteUser = function (user) {
 ian = new User("ian@greenumco.com", "ian");
 ryu = new User("ryu@ninjas.com", "ryu");
 rcn = new Admin("rcn@greenumco.com", "rcn");
-console.log(rcn);
-var users = [ian, ryu];
-console.log(users);
-rcn.deleteUser(ryu);
-console.log(users);
+console.log(rcn.__proto__);
+// rcn.login();
+// var users = [ian, ryu];
+// console.log(users);
+// rcn.deleteUser(ryu);
+// console.log(users);
