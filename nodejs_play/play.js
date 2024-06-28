@@ -1,7 +1,6 @@
 #!/usr/bin/node
 
-// setInterval(() => {
-//   console.log(`Booyaahhh!!!`);
-
-console.log(__dirname);
-console.log(__filename);
+const extras = require("./extras");
+const os = require("os");
+console.log(os.hostname());
+console.log(os.machine);
