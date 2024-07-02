@@ -21,6 +21,8 @@ body {
 	/* row-gap: 10px;
 	column-gap: 10px; */
 	gap: 10px;
+	align-items: stretch;
+	justify-content: center;
 }
 
 .item {
@@ -29,4 +31,11 @@ body {
 	font-size: 20px;
 	padding: 30px;
 	border: skyblue 1px solid;
+}
+
+.item:nth-child(1) {
+	/* width: 30%; */
+	/* background: #333; */
+	grid-column: 1 / 3;
+	grid-row: 1 / 3;
 }
