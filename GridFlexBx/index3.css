@@ -14,10 +14,20 @@ body{
 	background: #254de4;
 	margin: 10px;
 	color: white;
+
+	/* centering elements in a div using  flex box */
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .flex-container{
 	display: flex;
 	background: gray;
+	height: 400px;
 	/* justify-content: space-evenly; */
+	/*justify-content is for the main axis
+	  alugn-items is for the cross axis*/
+	/* align-items: end; */
+	flex-direction: column;
 }
