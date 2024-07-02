@@ -8,8 +8,21 @@ body{
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+.flex-container{
+	display: flex;
+	background: gray;
+	height: 400px;
+	/* justify-content: space-evenly; */
+	/*justify-content is for the main axis
+	  alugn-items is for the cross axis*/
+	/* align-items: end; */
+	/* flex-direction: column; */
+
+	/* flex-wrap: wrap; */
+}
+
 .item{
-	width: 100px;
+	width: 100px;/*or flex-basis: 100px;*/
 	height: 100px;
 	background: #254de4;
 	margin: 10px;
@@ -19,15 +32,4 @@ body{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-
-.flex-container{
-	display: flex;
-	background: gray;
-	height: 400px;
-	/* justify-content: space-evenly; */
-	/*justify-content is for the main axis
-	  alugn-items is for the cross axis*/
-	/* align-items: end; */
-	flex-direction: column;
 }
