@@ -7,6 +7,14 @@ const users = [
     { id: nextUserId++, username: "alice jones", role: "admin" },
     { id: nextUserId++, username: "charlie brown", role: "member" },
 ];
+/**
+ * Adds a new user to the system.
+ *
+ * @param newUser - An object containing the new user's details, excluding the `id` field.
+ * @returns The newly created user object with an `id` field.
+ * @throws Will throw an error if the `username` or `role` is missing.
+ * @throws Will throw an error if the `role` is not one of "member", "contributor", or "admin".
+ */
 function addNewUser(newUser) {
     if (!newUser.username || !newUser.role) {
         throw new Error("User must have a username and role");

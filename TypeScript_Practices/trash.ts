@@ -18,6 +18,10 @@ const voters: Voter[] = [
   { name: "Sam", age: 24 },
 ];
 
-function getLastItem<T>(array: T[]) {
+function getLastItem<T>(array: T[]): T {
   return array[array.length - 1];
 }
+
+console.log(getLastItem(scores));
+console.log(getLastItem(favoriteThings));
+console.log(getLastItem(voters));

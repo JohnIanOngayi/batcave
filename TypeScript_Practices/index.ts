@@ -49,7 +49,19 @@ var menu: PizzaObj[] = [
 ];
 
 /**
+ * Adds a new element to the array
+ *
+ * @param {Array<Type>} array  array of items of generic type Type
+ * @param {Type} item  item to be added to the array
+ */
+function addToArray<Type>(array: Type[], item: Type): void {
+  array.push(item);
+}
+
+/**
  * Adds a new pizza to the menu.
+ *
+ * @param pizzaObj  new PizzaObj lacking id
  */
 function addNewPizza(pizzaObj: Omit<PizzaObj, "id">): void {
   const newpizzaObj: PizzaObj = {
@@ -123,9 +135,20 @@ function completeOrder(orderId: number): OrderObj | never {
 }
 
 console.log(menu);
-addNewPizza({ name: "BBQ Chicken", price: 12 });
-addNewPizza({ name: "Meat Lovers", price: 12 });
-addNewPizza({ name: "Supreme", price: 12 });
+// addNewPizza({ name: "BBQ Chicken", price: 12 });
+// addNewPizza({ name: "Meat Lovers", price: 12 });
+// addNewPizza({ name: "Supreme", price: 12 });
+addToArray<PizzaObj>(menu, {
+  name: "BBQ Chicken",
+  price: 12,
+  id: nextOrderId++,
+});
+addToArray<PizzaObj>(menu, {
+  name: "Meat Lovers",
+  price: 12,
+  id: nextOrderId++,
+});
+addToArray<PizzaObj>(menu, { name: "Supreme", price: 12, id: nextOrderId++ });
 console.log(menu);
 // console.log(getPizzadetail("Margherita"));
 // console.log(getPizzadetail(2));

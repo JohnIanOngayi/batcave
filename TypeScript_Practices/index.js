@@ -23,7 +23,18 @@ var menu = [
     { id: nextPizzaId++, name: "Veggie", price: 9 },
 ];
 /**
+ * Adds a new element to the array
+ *
+ * @param {Array<Type>} array  array of items of generic type Type
+ * @param {Type} item  item to be added to the array
+ */
+function addToArray(array, item) {
+    array.push(item);
+}
+/**
  * Adds a new pizza to the menu.
+ *
+ * @param pizzaObj  new PizzaObj lacking id
  */
 function addNewPizza(pizzaObj) {
     const newpizzaObj = Object.assign({ id: nextPizzaId++ }, pizzaObj);
@@ -88,9 +99,20 @@ function completeOrder(orderId) {
     return order;
 }
 console.log(menu);
-addNewPizza({ name: "BBQ Chicken", price: 12 });
-addNewPizza({ name: "Meat Lovers", price: 12 });
-addNewPizza({ name: "Supreme", price: 12 });
+// addNewPizza({ name: "BBQ Chicken", price: 12 });
+// addNewPizza({ name: "Meat Lovers", price: 12 });
+// addNewPizza({ name: "Supreme", price: 12 });
+addToArray(menu, {
+    name: "BBQ Chicken",
+    price: 12,
+    id: nextOrderId++,
+});
+addToArray(menu, {
+    name: "Meat Lovers",
+    price: 12,
+    id: nextOrderId++,
+});
+addToArray(menu, { name: "Supreme", price: 12, id: nextOrderId++ });
 console.log(menu);
 // console.log(getPizzadetail("Margherita"));
 // console.log(getPizzadetail(2));
