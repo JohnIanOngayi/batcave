@@ -21,5 +21,5 @@ namespace Subjects {
     }
   }
 
-  const java: Subjects.React = new Subjects.React();
+  export const react: Subjects.React = new React();
 }

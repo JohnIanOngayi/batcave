@@ -12,14 +12,14 @@ namespace Subjects {
     getRequirements(): string {
       return "Here is the list of requirements for Java";
     }
-    getAvailableTeacher(teacher: Subjects.Teacher): string {
-      if (teacher.experienceTeachingJava) {
-        return `Available Teacher: ${teacher.firstName}`;
+    getAvailableTeacher(): string {
+      if (this.teacher.experienceTeachingJava) {
+        return `Available Teacher: ${this.teacher.firstName}`;
       } else {
         return "No available teacher";
       }
     }
   }
 
-  const java: Subjects.Java = new Subjects.Java();
+  export const java: Subjects.Java = new Subjects.Java();
 }

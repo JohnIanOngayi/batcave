@@ -2,7 +2,6 @@
 /// <reference path='./subjects/Teacher.ts' />
 /// <reference path='./subjects/Cpp.ts' />
 /// <reference path='./subjects/Java.ts' />
-
 console.log(Subjects.cpp);
 // console.log(Subjects.java);
 // console.log(Subjects.react);

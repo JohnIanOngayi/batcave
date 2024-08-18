@@ -21,5 +21,5 @@ namespace Subjects {
     }
   }
 
-  const cpp: Subjects.Cpp = new Subjects.Cpp();
+  export const cpp: Subjects.Cpp = new Subjects.Cpp();
 }
