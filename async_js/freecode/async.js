@@ -1,31 +1,15 @@
 #!/usr/bin/node
 
-let stocks = {
-  fruits: ["strawberry", "grapes", "banana", "apple"],
-  liquids: ["water", "ice"],
-  holders: ["cone", "cup", "stick"],
-  toppings: ["chocolate", "peanuts"],
-};
-
-let is_open = true;
-
-function time(ms) {
+function getNum(num) {
   return new Promise((resolve, reject) => {
-    if (is_open) {
-      setTimeout(resolve, ms);
-    } else {
-      reject(console.log("Closed"));
-    }
+    if (num === 1) resolve("Booyahh!!");
+    else reject("Nooooo");
   });
 }
 
-async function kitchen() {
-  try {
-  } catch (err) {
-    console.log("Lost ", errr);
-  } finally {
-    console.log("All done");
-  }
+async function finisher() {
+  const response = await getNum(1);
+  console.log(response);
 }
 
-kitchen();
+finisher(getNum(1));
