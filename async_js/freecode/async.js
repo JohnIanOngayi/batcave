@@ -9,25 +9,23 @@ let stocks = {
 
 let is_open = true;
 
-let toppings_choice = () => {
+function time(ms) {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(console.log("Choose Toppings"));
-    }, 3000);
+    if (is_open) {
+      setTimeout(resolve, ms);
+    } else {
+      reject(console.log("Closed"));
+    }
   });
-};
+}
 
 async function kitchen() {
-  console.log("A");
-  console.log("B");
-  console.log("C");
-  await toppings_choice();
-  console.log("D");
-  console.log("E");
+  try {
+  } catch (err) {
+    console.log("Lost ", errr);
+  } finally {
+    console.log("All done");
+  }
 }
 
 kitchen();
-
-console.log("Doing the dishes");
-console.log("Setting the tables");
-console.log("Taking other orders");

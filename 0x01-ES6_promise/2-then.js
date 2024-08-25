@@ -1,8 +1,8 @@
 #!/usr/bin/node
 
-const promiseA = new Promise((resolve, reject) => {
-  resolve(777);
-});
-// At this point, "promiseA" is already settled.
-promiseA.then((val) => console.log("asynchronous logging has val:", val));
-console.log("immediate logging");
+export default function handleResponseFromAPI(promise) {
+  return promise
+    .then(() => ({ status: 200, body: "success" }))
+    .catch(() => new Error())
+    .finally(() => console.log("Got a response from the API"));
+}
