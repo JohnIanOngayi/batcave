@@ -34,7 +34,7 @@ Mr. T
 
 sentence = "Start a sentence and then bring it to an end"
 # d matches any digit
-pattern = re.compile(r"Mr\.?\s[A-Z][a-z]*\b")
+pattern = re.compile(r"M(r|rs|s)\.?\s[A-Z][a-z]*\b")
 matches = pattern.finditer(text_to_search)
 for match in matches:
     print(match)
