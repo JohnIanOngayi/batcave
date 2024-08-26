@@ -2,7 +2,7 @@
 
 import re
 
-text_to_search = '''
+text_to_search = """
 abcdefghijklmnopqrstuvwxyz
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
@@ -16,19 +16,24 @@ MetaCharacters (Need to be escaped):
 johnian.com
 coreyms.com
 
-321-555-4321
-123.555.1234
+800-555-4321
+900.555.1234
 
 Mr. Schafer
 Mr Smith
 Ms Davis
 Mrs. Robinson
 Mr. T
-'''
+"""
 
-sentence = 'Start a sentence and then bring it to an end'
+sentence = "Start a sentence and then bring it to an end"
 # d matches any digit
-pattern = re.compile(r'\d')
-matches = pattern.finditer(text_to_search)
-for match in matches:
-    print(match)
+pattern = re.compile(r"[89]00[-.]\d\d\d[-.]\d\d\d")
+# matches = pattern.finditer(text_to_search)
+# for match in matches:
+#     print(match)
+with open("./py/data.txt", "r") as f:
+    contents = f.read()
+    matches = pattern.finditer(contents)
+    for match in matches:
+        print(match)
