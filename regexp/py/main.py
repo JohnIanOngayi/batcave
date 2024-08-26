@@ -28,7 +28,7 @@ Mr. T
 
 sentence = "Start a sentence and then bring it to an end"
 # d matches any digit
-pattern = re.compile(r"[89]00[-.]\d\d\d[-.]\d\d\d")
+pattern = re.compile(r"[^a-zA-z]")
 # matches = pattern.finditer(text_to_search)
 # for match in matches:
 #     print(match)
