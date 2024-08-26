@@ -2,13 +2,21 @@
 
 import signal
 import time
+import sys
 
 
-def signal_handler(signum, frame):
-    print("Why you try interrupt me")
+def term_handler(signum, frame):
+    print("Termination requested")
+    print("Performing cleanup...")
+    sys.exit(100)
 
 
-signal.signal(signal.SIGINT, signal_handler)
+def int_handler(signum, frame):
+    print("Why you try interrupt me😿")
+
+
+signal.signal(signal.SIGINT, int_handler)
+signal.signal(signal.SIGTERM, term_handler)
 
 while True:
     print("hey")
