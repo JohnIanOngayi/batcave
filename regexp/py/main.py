@@ -27,8 +27,8 @@ Mr. T
 '''
 
 sentence = 'Start a sentence and then bring it to an end'
-pattern = re.compile(r'abc')
+# d matches any digit
+pattern = re.compile(r'\d')
 matches = pattern.finditer(text_to_search)
 for match in matches:
-    print(match.span())
-    print(text_to_search[match.span()[0]:match.span()[1]])
+    print(match)
