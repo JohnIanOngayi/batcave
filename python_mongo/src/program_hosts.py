@@ -2,6 +2,7 @@
 from colorama import Fore
 from infrastructure.switchlang import switch
 import infrastructure.state as state
+import services.data_service as svc
 
 
 def run():
@@ -49,48 +50,116 @@ def show_commands():
 
 def create_account():
     print(" ****************** REGISTER **************** ")
-    # TODO: Get name & email
-    # TODO: Create account, set as logged in.
+    name = input("What is your name? ")
+    email = input("What is your email? ").strip().lower()
 
-    print(" -------- NOT IMPLEMENTED -------- ")
+    old_account = svc.find_account_by_email(email)
+    if old_account is None:
+        state.active_account = svc.create_account(name, email)
+        success_msg(f"Created new a/c with id {state.active_account.id}")
+    else:
+        error_msg(f"Error: Account with email {email} already exists!")
 
 
 def log_into_account():
     print(" ****************** LOGIN **************** ")
 
-    # TODO: Get email
-    # TODO: Find account in DB, set as logged in.
+    email = input("What is your email? ").strip().lower()
+    account = svc.find_account_by_email(email)
 
-    print(" -------- NOT IMPLEMENTED -------- ")
+    if not account:
+        error_msg(f"Sorry, no a/c with email {email}")
+        return
+
+    state.active_account = account
+    success_msg("Successfully logged in🙂")
 
 
 def register_cage():
     print(" ****************** REGISTER CAGE **************** ")
 
-    # TODO: Require an account
-    # TODO: Get info about cage
-    # TODO: Save cage to DB.
+    if not state.active_account:
+        error_msg("You must login first to register cage")
+        return
 
-    print(" -------- NOT IMPLEMENTED -------- ")
+    sq_meters = input("How many square meters in the cage? ")
+    if not sq_meters:
+        error_msg("Cancelled")
+        return
+
+    sq_meters = float(sq_meters)
+    is_carpeted = input("Is it carpeted? [y, n] ").lower().startswith("y")
+    has_toys = input("Has snake toys? [y, n] ").lower().startswith("y")
+    allow_dangerous_snakes = (
+        input("Can you host venomous snakes? [y, n] ").lower().startswith("y")
+    )
+    name = input("Give your cage a name: ")
+
+    price = input("How much would you like to charge per day in dollars($)? ")
+    if not price:
+        error_msg("Cancelled")
+        return
+
+    price = float(price)
+
+    new_cage = svc.register_cage(
+        owner=state.active_account,
+        name=name,
+        allow_dangerous_snakes=allow_dangerous_snakes,
+        has_toys=has_toys,
+        is_carpeted=is_carpeted,
+        sq_meters=sq_meters,
+        price=price,
+    )
+
+    state.reload_account()
+    success_msg(f"Registered new cage with id {new_cage.id}")
 
 
 def list_cages(supress_header=False):
     if not supress_header:
         print(" ******************     Your cages     **************** ")
 
-    # TODO: Require an account
-    # TODO: Get cages, list details
+    if not state.active_account:
+        error_msg("You must login first to list your registered cages")
+        return
 
-    print(" -------- NOT IMPLEMENTED -------- ")
+    cages = svc.find_cages_for_user(state.active_account)
+    print(f"You have {len(cages)} cages")
+    for idx, c in enumerate(cages):
+        print(f"{idx+1}. {c.name} is {c.sq_meters} sq meters")
+        for b in c.bookings:
+            print(
+                "     * Booking: {}, {} days, booked? {}".format(
+                    b.check_in_date,
+                    (b.checK_out_date - b.check_in_date).days,
+                    "YES" if b.booked_date is not None else "no",
+                )
+            )
 
 
 def update_availability():
     print(" ****************** Add available date **************** ")
 
-    # TODO: Require an account
-    # TODO: list cages
-    # TODO: Choose cage
-    # TODO: Set dates, save to DB.
+    if not state.active_account:
+        error_msg("You mst login first to view your cages")
+        return
+
+    list_cages(supress_header=True)
+
+    cage_number = input("Select cage no.: ")
+    if not cage_number.strip():
+        error_msg("Cancelled")
+        print()
+        return
+
+    cage_number = int(cage_number)
+
+    cages = svc.find_cages_for_user(state.active_account)
+    selected_cage = cages[cage_number - 1]
+
+    start_date = parser.parse(input("Enter available date [yyyy-mm-dd]: "))
+    days = int(input("How many days is this block of time? "))
 
     print(" -------- NOT IMPLEMENTED -------- ")
 
