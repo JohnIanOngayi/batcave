@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
+from datetime import date
 from colorama import Fore
 from infrastructure.switchlang import switch
 import infrastructure.state as state
 import services.data_service as svc
+from dateutil import parser
 
 
 def run():
@@ -59,6 +61,7 @@ def create_account():
         success_msg(f"Created new a/c with id {state.active_account.id}")
     else:
         error_msg(f"Error: Account with email {email} already exists!")
+        return
 
 
 def log_into_account():
@@ -132,7 +135,7 @@ def list_cages(supress_header=False):
             print(
                 "     * Booking: {}, {} days, booked? {}".format(
                     b.check_in_date,
-                    (b.checK_out_date - b.check_in_date).days,
+                    (b.check_out_date - b.check_in_date).days,
                     "YES" if b.booked_date is not None else "no",
                 )
             )
@@ -161,17 +164,30 @@ def update_availability():
     start_date = parser.parse(input("Enter available date [yyyy-mm-dd]: "))
     days = int(input("How many days is this block of time? "))
 
-    print(" -------- NOT IMPLEMENTED -------- ")
+    svc.add_available_date(selected_cage, start_date, days)
+    state.reload_account()
+    success_msg(f"Availability updated successfully for cage: {selected_cage.name}")
 
 
 def view_bookings():
     print(" ****************** Your bookings **************** ")
 
-    # TODO: Require an account
-    # TODO: Get cages, and nested bookings as flat list
-    # TODO: Print details for each
+    if not state.active_account:
+        error_msg("You must be logged in to view bookings on your cages")
+        return
+    cages = svc.find_cages_for_user(state.active_account)
+    bookings = [(c, b) for c in cages for b in c.bookings if b.booked_date]
 
-    print(" -------- NOT IMPLEMENTED -------- ")
+    print(f"You have {len(bookings)} bookings")
+    for c, b in bookings:
+        print(
+            " * Cage {}, booked date: {} from {} for {} days".format(
+                c.name,
+                date(b.booked_date.year, b.booked_date.month, b.booked_date.day),
+                date(b.check_in_date.year, b.check_in_date.month, b.check_in_date.day),
+                b.duration_in_days,
+            )
+        )
 
 
 def exit_app():
