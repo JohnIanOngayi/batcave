@@ -1,1 +1,1 @@
-# Es ist verdammt hart der Beste zu sein
+# Studies, Random Projects etcetra etcetra
