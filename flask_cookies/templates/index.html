@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <title>Hello World</title>
+                <!-- <link href="css/style.css" rel="stylesheet"> -->
+        </head>
+        <body>
+                <h2>Hello {{ saved_name if saved_name else 'Stranger' }}</h2>
+                <a href="/del_cookie">delete name cookie</a>
+        <form action="/save_name" method="post">
+                        <input type="text" name="name" placeholder="Your name">
+                        <input type="submit" value="Save name">
+                </form>
+        </body>
+</html>
