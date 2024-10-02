@@ -1,0 +1,2 @@
+GET http://localhost:8000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3Mjc2OTY1NjZ9.yVBmP-EqnpLU_dDdSolwWgjzM-nolq_VMiWqEDJ5mjs
