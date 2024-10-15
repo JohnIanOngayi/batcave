@@ -1,4 +1,4 @@
-import { appendFile, readFile, writeFile } from "fs";
+import { appendFile, readFile, rename, writeFile } from "fs";
 import { fileURLToPath } from "url";
 import path, { dirname } from "path";
 
@@ -18,6 +18,7 @@ writeFile(
   (err) => {
     if (err) throw err;
     console.log("Write complete!");
+
     /* Appending to file asynchronously */
     appendFile(
       path.join(__dirname, "files", "reply.txt"),
@@ -25,6 +26,16 @@ writeFile(
       (err) => {
         if (err) throw err;
         console.log("Append complete!");
+
+        /* Renaming file asynchronously */
+        rename(
+          path.join(__dirname, "files", "reply.txt"),
+          path.join(__dirname, "files", "__reply.txt"),
+          (err) => {
+            if (err) throw err;
+            console.log("Rename complete!");
+          },
+        );
       },
     );
   },
