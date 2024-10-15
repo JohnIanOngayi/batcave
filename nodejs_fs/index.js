@@ -1,9 +1,14 @@
 import { readFile } from "fs";
+import { fileURLToPath } from "url";
+import path, { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /* Reading file asynchronously */
-readFile("./files/starter.txt", 'utf-8', (err, data) => {
+readFile(path.join(__dirname, "files", "starter.txt"), "utf-8", (err, data) => {
   if (err) throw err;
-  console.log(data)
+  console.log(data);
 });
 
 process.on("uncaughtException", (error) => {
