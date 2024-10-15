@@ -1,9 +1,9 @@
 import { readFile } from "fs";
 
 /* Reading file asynchronously */
-readFile("./files/starter.txt", (err, data) => {
+readFile("./files/starter.txt", 'utf-8', (err, data) => {
   if (err) throw err;
-  console.log(data.toString("utf-8"));
+  console.log(data)
 });
 
 process.on("uncaughtException", (error) => {
